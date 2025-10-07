@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AdriSom Produções</title>
+
+  <!-- Fonte e estilo -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======= ESTILO GERAL ======= */
+    body {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      background: url('https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      z-index: 2;
+    }
+
+    header img {
+      width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+      margin-top: 40px;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 25px rgba(255, 0, 0, 0.8); }
+      50% { box-shadow: 0 0 45px rgba(255, 215, 0, 1); }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #FFD700;
+      text-shadow: 0 0 25px #FF0000;
+      margin: 20px 0;
+    }
+
+    /* ======= BOTÕES ======= */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%;
+      max-width: 350px;
+      margin-bottom: 40px;
+      z-index: 2;
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #ff0000, #ffcc00);
+      color: #000;
+      padding: 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.9);
+    }
+
+    /* ======= LUZES ANIMADAS ======= */
+    .light {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,0,0,0.5), transparent 70%);
+      animation: moveLight 8s infinite linear;
+      z-index: 1;
+    }
+
+    @keyframes moveLight {
+      0% { transform: translate(0, 0); opacity: 0.5; }
+      25% { transform: translate(100vw, 20vh); opacity: 0.8; }
+      50% { transform: translate(50vw, 50vh); opacity: 0.6; }
+      75% { transform: translate(-30vw, 80vh); opacity: 0.9; }
+      100% { transform: translate(0, 0); opacity: 0.5; }
+    }
+
+    footer {
+      font-size: 0.9em;
+      color: #ccc;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay"></div>
+  <div class="light"></div>
+
+  <header>
+    <img src="adri.jfif" alt="Logo AdriSom">
+    <h1>AdriSom Produções</h1>
+  </header>
+
+  <div class="buttons">
+    <a class="btn" href="https://wa.me/5583993059337?text=Quero%20falar%20com%20adrisom%20a%20respeito%20de:%20" target="_blank">
+      💬 Entrar em Contato (WhatsApp)
+    </a>
+    <a class="btn" href="https://instagram.com/adrisomoficial" target="_blank">
+      📸 Siga no Instagram
+    </a>
+    <a class="btn" href="mailto:adri_son@hotmail.com" target="_blank">
+      ✉️ Enviar E-mail
+    </a>
+  </div>
+
+  <footer>© 2025 AdriSom Produções | Som, Luz e Estrutura Profissional</footer>
+
+  <script>
+    // ======= JavaScript para criar luzes adicionais e efeito de movimento =======
+    const body = document.body;
+
+    function createLight() {
+      const light = document.createElement('div');
+      light.classList.add('light');
+      light.style.top = Math.random() * 100 + 'vh';
+      light.style.left = Math.random() * 100 + 'vw';
+      light.style.animationDuration = 6 + Math.random() * 6 + 's';
+      light.style.background = `radial-gradient(circle, rgba(${255*Math.random()},${255*Math.random()},0,0.6), transparent 70%)`;
+      body.appendChild(light);
+
+      setTimeout(() => light.remove(), 12000);
+    }
+
+    setInterval(createLight, 2000);
+  </script>
+</body>
+</html>
